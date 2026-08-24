@@ -1,0 +1,15 @@
+<svg width="96" height="120" viewBox="0 0 96 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <!-- paper body -->
+  <path d="M10 4 H62 L86 28 V112 a4 4 0 0 1 -4 4 H10 a4 4 0 0 1 -4 -4 V8 a4 4 0 0 1 4 -4 Z"
+        fill="#F3ECD8" stroke="#8B6B3A" stroke-width="2"/>
+  <!-- folded corner -->
+  <path d="M62 4 L86 28 H66 a4 4 0 0 1 -4 -4 Z" fill="#E4D6AE" stroke="#8B6B3A" stroke-width="2" stroke-linejoin="round"/>
+  <!-- text lines -->
+  <line x1="18" y1="46" x2="70" y2="46" stroke="#CDBB8E" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="18" y1="56" x2="70" y2="56" stroke="#CDBB8E" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="18" y1="66" x2="52" y2="66" stroke="#CDBB8E" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- ribbon -->
+  <rect x="10" y="80" width="76" height="24" rx="3" fill="#6E5A34"/>
+  <text x="48" y="97" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="700"
+        fill="#F3ECD8" text-anchor="middle" letter-spacing="1.5">DOCX</text>
+</svg>
