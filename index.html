@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doc Converter — PDF to Word</title>
+<meta name="description" content="Convert PDF documents into editable Word files using AI-powered text recognition.">
+
+<!-- Vintage serif pairing: Playfair Display for display type, Cormorant Garamond for body/UI text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="hero">
+    <h1 class="hero-title">Doc Converter</h1>
+    <div class="divider" aria-hidden="true">
+      <span class="divider-line"></span>
+      <img src="assets/ornament.svg" alt="" class="divider-ornament">
+      <span class="divider-line"></span>
+    </div>
+    <p class="hero-subtitle">Convert PDF documents into editable Word files using AI&#8209;powered text recognition.</p>
+  </header>
+
+  <!-- The card holds exactly one visible state at a time. States are toggled
+       purely through the "is-active" class from script.js; every inactive
+       state is display:none, never just visually hidden pieces left in flow. -->
+  <main class="card" id="converterCard">
+
+    <!-- ================= STATE: UPLOAD ================= -->
+    <section class="state" id="uploadState" data-state="upload">
+      <div class="dropzone"
+           id="dropzone"
+           role="button"
+           tabindex="0"
+           aria-label="Drop a PDF file here, or activate to browse for a file">
+        <img src="assets/pdf-icon.svg" alt="" class="dropzone-icon">
+        <p class="dropzone-title">Drop your PDF file here</p>
+        <p class="dropzone-sub">or click anywhere in this area to browse</p>
+
+        <button type="button" class="btn btn-primary" id="chooseBtn">Choose PDF</button>
+
+        <p class="dropzone-note">— PDF files only —</p>
+
+        <label class="visually-hidden" for="fileInput">Choose a PDF file to convert</label>
+        <input type="file"
+               id="fileInput"
+               accept=".pdf,application/pdf"
+               class="visually-hidden">
+      </div>
+
+      <p class="inline-error" id="uploadError" role="alert" hidden></p>
+    </section>
+
+    <!-- ================= STATE: SELECTED (options only) ================= -->
+    <section class="state" id="selectedState" data-state="selected">
+
+      <p class="selected-lead">Your PDF is ready to convert.</p>
+
+      <div class="options" role="group" aria-label="Conversion options">
+        <div class="option-row">
+          <label class="option-label" for="additionalRows">Additional page rows</label>
+          <input type="number"
+                 id="additionalRows"
+                 class="number-field"
+                 min="0"
+                 max="200"
+                 step="1"
+                 value="10"
+                 inputmode="numeric">
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-block" id="convertBtn">Convert to Word</button>
+    </section>
+
+    <!-- ================= STATE: CONVERTING ================= -->
+    <section class="state" id="convertingState" data-state="converting" aria-live="polite">
+      <img src="assets/pdf-icon.svg" alt="" class="processing-icon">
+      <p class="processing-title">Converting your document&hellip;</p>
+      <p class="processing-sub">AI is recognizing and formatting the text.</p>
+      <div class="progress-track" role="progressbar" aria-label="Conversion in progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <!-- ================= STATE: SUCCESS ================= -->
+    <section class="state" id="successState" data-state="success" aria-live="polite">
+      <img src="assets/status-success.svg" alt="" class="status-icon">
+      <p class="success-title">Your Word document is ready!</p>
+      <p class="success-detail" id="successDetail"></p>
+      <button type="button" class="btn btn-primary btn-block" id="downloadBtn">Download Word Document</button>
+      <button type="button" class="btn-text" id="convertAnotherBtn">Convert another PDF</button>
+    </section>
+
+    <!-- ================= STATE: ERROR ================= -->
+    <section class="state" id="errorState" data-state="error" aria-live="assertive">
+      <img src="assets/status-error.svg" alt="" class="status-icon">
+      <p class="error-title">Something went wrong</p>
+      <p class="error-detail" id="errorDetail">We couldn&rsquo;t convert this document. Please try again.</p>
+      <button type="button" class="btn btn-primary btn-block" id="retryBtn">Try Again</button>
+    </section>
+
+  </main>
+
+  <div class="footer-divider" aria-hidden="true">
+    <span class="divider-line"></span>
+    <img src="assets/ornament.svg" alt="" class="divider-ornament">
+    <span class="divider-line"></span>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
