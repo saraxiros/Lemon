@@ -21,8 +21,8 @@
   --shadow-color: 30 20% 40%;
 
   /* -- type -- */
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-body: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Poppins", "Helvetica Neue", Arial, sans-serif;
 
   /* -- misc -- */
   --radius-lg: 28px;
